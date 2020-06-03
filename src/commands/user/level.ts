@@ -5,7 +5,7 @@ import type { Message } from '@klasa/core';
 
 export default class extends Command {
 
-	constructor(store: CommandStore, directory: string, files: string[]) {
+	public constructor(store: CommandStore, directory: string, files: string[]) {
 		super(store, directory, files, {
 			guarded: true,
 			description: language => language.get('COMMAND_LEVEL_DESCRIPTION'),
@@ -13,15 +13,15 @@ export default class extends Command {
 		});
 	}
 
-	async run(message: Message, [query]: [string]): Promise<Message[]> {
+	public async run(message: Message, [query]: [string]): Promise<Message[]> {
+		const location = !query ? '' : query;
 
-        const location = !query ? "" : query; 
-
-        return message.send(mb => 
-                mb.setEmbed(em =>
-                    em
-                        .setColor(0x007bff)
-                        .addField("Error:", `DA: "${location}" ne`, false))
-        );
+		return message.send(mb =>
+			mb.setEmbed(em =>
+				em
+					.setColor(0x007bff)
+					.addField('Error:', `DA: "${location}" ne`, false))
+		);
 	}
+
 }
