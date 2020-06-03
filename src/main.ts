@@ -1,16 +1,21 @@
-import { KlasaClient, KlasaClientOptions } from 'klasa';
-import { config, token } from '../config';
+import { KlasaClient } from 'klasa';
+import * as CONFIG from '../config';
+import { Canvas } from 'canvas-constructor';
+import { join } from 'path';
+Canvas
+	.registerFont(join(__dirname, "assets", 'fonts', 'Roboto-Regular.ttf'), 'RobotoRegular')
+	.registerFont(join(__dirname, "assets", 'fonts', 'NotoEmoji.ttf'), 'RobotoRegular')
+	.registerFont(join(__dirname, "assets", 'fonts', 'NotoSans-Regular.ttf'), 'RobotoRegular')
+	.registerFont(join(__dirname, "assets", 'fonts', 'Roboto-Light.ttf'), 'RobotoLight')
+	.registerFont(join(__dirname, "assets", 'fonts', 'Family-Friends.ttf'), 'FamilyFriends');
 
-class MyKlasaClient extends KlasaClient {
-
-	constructor(options: KlasaClientOptions) {
-		super(options);
-
-		// Add any properties to your Klasa Client
-	}
-
-	// Add any methods to your Klasa Client
-
-}
-
-new MyKlasaClient(config).login(token);
+const clasa = new KlasaClient({
+	commands: {
+		prefix: CONFIG.PREFIX,
+	},
+	providers: { 
+		default: "json"
+	 }
+});
+clasa.token = CONFIG.TOKENS.BOT_TOKEN;
+clasa.connect();
