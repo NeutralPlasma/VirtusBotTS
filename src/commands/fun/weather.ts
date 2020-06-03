@@ -67,7 +67,7 @@ export default class extends Command {
 			.createBeveledPath(10, 10, 380, 220, 5)
 			.fill()
 			.restore()
-		// City Name
+		// City Name (TOP LEFT)
 			.setTextFont('20px Roboto')
 			.setColor(fontColor)
 			.addWrappedText(`${data.name}|${data.sys.country}`, 30, 60, 300)
@@ -75,7 +75,7 @@ export default class extends Command {
 		// Prefecture Name
 			.setTextFont('16px Roboto')
 			.setColor(theme === 'light' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)')
-			.addText(state, 30, 30)
+			.addText(state, 30, 35)
 
 		// Temperature
 			.setTextFont("48px Roboto'")
@@ -87,21 +87,21 @@ export default class extends Command {
 			.setTextAlign('right')
 			.addText(data.weather[0].description, 370, 192)
 
-		// Titles
+		// Titles (BOTTOM RIGHT)
 			.setTextFont("16px Roboto'")
 			.addText(`${data.main.humidity}%`, 353, 150)
 			.addText(`${data.clouds.all}%`, 353, 171)
 
 
 		// Icons
-			.addImage(conditionBuffer, 325, 31, 48, 48)
+			.addImage(conditionBuffer, 315, 25, 48, 48)
 			.addImage(humidityBuffer, 358, 138, 13, 13)
-				  .addImage(weather, 358, 158, 13, 13);
+			.addImage(weather, 358, 158, 13, 13);
 
 		return message.send(mb => // Embeded sporočilo
 			mb.addFile(
 				{
-					name: 'Blabla.png',
+					name: data.name +'.png',
 					file: canvas.toBuffer()
 				}
 			)
