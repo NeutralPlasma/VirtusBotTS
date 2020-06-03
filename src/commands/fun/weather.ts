@@ -6,16 +6,16 @@ import { join } from 'path';
 import { TOKENS } from '../../../config';
 
 const COLORS = {
-	cloudy: '#88929F',
-	day: '#6ABBD8',
-	night: '#575D83',
-	rain: '#457AD0',
-	snow: '#FAFAFA',
+	cloudy: '#7FCAF0',
+	day: '#ffd280',
+	night: '#4B4C43',
+	rain: '#0459F6',
+	snow: '#BEF7FE',
 	thunderstorm: '#99446B',
-	windy: '#33B679',
-	storm: '#457AD0',
-	mist: '#FAFAFA',
-	tornado: '#457AD0'
+	windy: '#BEF7FE',
+	storm: '#0459F6',
+	mist: '#BEF7FE',
+	tornado: '#99446B'
 };
 
 // const { parseStringPromise } = require('xml2js');
