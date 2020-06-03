@@ -5,7 +5,7 @@ import type { Message } from '@klasa/core';
 
 export default class extends Command {
 
-	public constructor(store: CommandStore, directory: string, files: string[]) {
+	constructor(store: CommandStore, directory: string, files: string[]) {
 		super(store, directory, files, {
 			guarded: true,
 			description: language => language.get('COMMAND_LEVEL_DESCRIPTION'),
@@ -13,19 +13,19 @@ export default class extends Command {
 		});
 	}
 
-	public async run(message: Message, [prefix]: [string]): Promise<Message[]> {
-		if (prefix === 'reset') {
-			await message.guild.settings.update('prefix', '!');
-		} else {
-			await message.guild.settings.update('prefix', prefix);
-		}
+	async run(message: Message, [prefix]: [string]): Promise<Message[]> {
 
-		return message.send(mb =>
-			mb.setEmbed(em =>
-				em
-					.setColor(0x007bff)
-					.addField('Update:', `Changed prefix to: "${prefix}"`, false))
-		);
+        if(prefix === "reset"){
+            await message.guild.settings.update('prefix', "!");
+            prefix = "!";
+        }else{
+            await message.guild.settings.update('prefix', prefix);
+        }
+
+        return message.send(mb => 
+            mb.setEmbed(em =>
+                em
+                    .setColor(0x007bff)
+                    .addField("Update:", `Changed prefix to: "${prefix}"`, false)));
 	}
-
 }
