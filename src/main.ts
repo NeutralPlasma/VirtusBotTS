@@ -1,4 +1,4 @@
-import { KlasaClient } from 'klasa';
+import { KlasaClient} from 'klasa';
 import * as CONFIG from '../config';
 import { Canvas } from 'canvas-constructor';
 import { join } from 'path';
@@ -15,8 +15,9 @@ const clasa = new KlasaClient({
 	},
 	providers: {
 		default: 'json'
-	}
+	},
 });
+
 
 clasa.token = CONFIG.TOKENS.BOT_TOKEN;
 clasa.connect();

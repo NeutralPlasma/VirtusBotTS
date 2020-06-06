@@ -9,7 +9,8 @@ export default class extends Command {
 		super(store, directory, files, {
 			guarded: true,
 			description: language => language.get('COMMAND_PREFIX_DESCRIPTION'),
-			usage: '[reset|prefix:str{1,10}]'
+            usage: '[reset|prefix:str{1,10}]',
+            permissionLevel: 6
 		});
 	}
 
