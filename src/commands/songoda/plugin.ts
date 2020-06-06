@@ -20,8 +20,8 @@ export default class extends Command {
 	public constructor(store: CommandStore, directory: string, files: string[]) {
 		super(store, directory, files, {
 			guarded: true,
-            description: language => language.get('COMMAND_PUSH_DESCRIPTION'),
-			usage: '[user:string]'
+            description: language => language.get('COMMAND_PLUGIN_DESCRIPTION'),
+			usage: '<plugin:string>'
 		});
     }
     
@@ -46,8 +46,8 @@ export default class extends Command {
     
     public async showInfo(message: Message, plugin: string){
 
-        const data = await (await fetch(`https://songoda.com/api/products/${this.getPlugin(plugin.toLowerCase())}`)).json();
-
+		const data = await (await fetch(`https://songoda.com/api/products/${this.getPlugin(plugin.toLowerCase())}`)).json();
+		
         const progressBar = Math.max(Math.round((data.data.rating / 5) * 364), 6);
 
         const [themeImageSRC, pluginIcon] = await Promise.all([
@@ -142,7 +142,7 @@ export default class extends Command {
 
             case 'simplecrops': // SIMPLE CROPS
                 return 'simplecrops-simplecrops-make-custom-crops';
-            case '405':
+            case '117':
                 return 'simplecrops-simplecrops-make-custom-crops';
                 
             case 'holographicplaceholders': // HOLOGRAPHIC PLACEHOLDERS

@@ -21,7 +21,7 @@ export default class extends Language {
 			COMMAND_PREFIX_DESCRIPTION: 'Set bots prefix for this guild/server.',
 
 			// SONGODA
-			COMMAND_PUSH_DESCRIPTION: 'Get information about plugin from songoda.'
+			COMMAND_PLUGIN_DESCRIPTION: 'Get information about plugin from songoda.'
 		};
 	}
 
