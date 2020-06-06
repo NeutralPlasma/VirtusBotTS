@@ -8,7 +8,7 @@ export default class extends Command {
 	constructor(store: CommandStore, directory: string, files: string[]) {
 		super(store, directory, files, {
 			guarded: true,
-			description: language => language.get('COMMAND_LEVEL_DESCRIPTION'),
+			description: language => language.get('COMMAND_PREFIX_DESCRIPTION'),
 			usage: '[reset|prefix:str{1,10}]'
 		});
 	}

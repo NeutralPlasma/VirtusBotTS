@@ -11,8 +11,17 @@ export default class extends Language {
 			DEFAULT_LANGUAGE: 'Default Language',
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 
-			COMMAND_BLABLA: 'ya',
-			COMMAND_WEATHER_DESCRIPTION: 'Get weather of specific city.'
+			// FUN
+			COMMAND_WEATHER_DESCRIPTION: 'Get weather of specific city.',
+
+			// USER
+			COMMAND_LEVEL_DESCRIPTION: 'Get your level.',
+
+			// SERVER
+			COMMAND_PREFIX_DESCRIPTION: 'Set bots prefix for this guild/server.',
+
+			// SONGODA
+			COMMAND_PUSH_DESCRIPTION: 'Get information about plugin from songoda.'
 		};
 	}
 
